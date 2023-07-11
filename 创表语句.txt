@@ -1,0 +1,48 @@
+users表：
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `photo_url` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+user_passwords表：
+
+CREATE TABLE `user_passwords` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+books表：
+
+CREATE TABLE `books` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `publisher` varchar(100) NOT NULL,
+  `date_published` date NOT NULL,
+  `details` varchar(3000) DEFAULT NULL,
+  `cover_url` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+actions表：
+
+CREATE TABLE `actions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `book_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `action` varchar(45) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
